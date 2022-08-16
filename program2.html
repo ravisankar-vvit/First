@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div
+{
+width:350px;
+height:90px;
+margin:auto;
+padding:20px;
+border:1px solid black;
+}
+</style>
+<script>
+function drag(event)
+{
+event.dataTransfer.setData("text",event.target.id);
+}
+function allowdrop(event)
+{
+event.preventDefault();
+}
+function drop(event)
+{
+event.preventDefault();
+var data=event.dataTransfer.getData("text");
+event.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body align="center">
+<h1>dragable content</h1>
+<p>Drag the image into the rectangle:</p>
+<div id="div1" ondrop="drop(event)" ondragover="allowdrop(event)" >
+</div><br>
+<img id="drag1" src="/home/3-cse-a/FED/Link to pexels-travis-saylor-1202047.jpg" draggable="true" ondragstart="drag(event)" width="336" height="100">
+</body>
+
