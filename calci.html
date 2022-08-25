@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#di
+			{
+				display:grid;
+				justify-content:space-evenly;
+				grid-template-rows:100px 100px 100px 100px;
+				grid-template-columns:100px 100px 100px 100px;
+				padding:20px;
+				width:400px;
+				margin:auto;
+			}
+			.a
+			{
+				background-color:lightblue;
+				border: 1px solid rgba(0, 0, 0, 0.8);
+                font-size: 20px;
+                text-align: center;
+			}
+			#te
+			{
+				height:30px;
+				width:400px;
+			}
+			.button {
+                border: none;
+                padding: 37px 35px;
+				background-color:lightblue;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 20px;
+                cursor: pointer;
+			}
+
+				
+		</style>
+	</head>
+	<body align="center" bgcolor="lightgreen">
+		<input type="text" name="text" id="te" >
+		<div id="di">
+			<div class="a"><button type="button" class="button" onclick="myfun('1')">1</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('2')">2</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('3')">3</button></div>
+			<div class="a"><button type="button" class="button" onclick="del('AC')">AC</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('4')">4</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('5')">5</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('6')">6</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('+')">+</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('7')">7</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('8')">8</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('9')">9</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('-')">-</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('.')">.</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('0')">0</button></div>
+			<div class="a"><button type="button" class="button" onclick="caluclate('=')">=</button></div>
+			<div class="a"><button type="button" class="button" onclick="myfun('*')">*</button></div>
+		</div>
+		
+		<script>
+		   var input=document.getElementById("te");
+		   input.addEventListener("keypress", function(event) {
+                   if (event.key === "Enter") {
+                   event.preventDefault();
+                   caluclate('=');
+    }
+});
+		      function myfun(val)
+		      {
+		       document.getElementById("te").value+=val;
+		       }
+		       function caluclate(val)
+		       {
+		       	var x=document.getElementById("te").value;
+		       	document.getElementById("te").value=eval(x)
+		       	}
+		       	function del(val)
+		       	{
+		       	  document.getElementById("te").value='';
+		       	  }
+		</script>
+	</body>
+</html>
